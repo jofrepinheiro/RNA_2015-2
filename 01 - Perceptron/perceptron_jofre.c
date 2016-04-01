@@ -3,13 +3,13 @@
 int main()
 {
   
-	  int x1[4];
-	  int x2[4];
-	  int x3[4];
-	  int controle[4];
-	  int w[4];
-	  int t[4];
-	  int b = 0, i=0, epoca = 0, y = 0, y_in = 0, parada = 0;
+	  float x1[4];
+	  float x2[4];
+	  float x3[4];
+	  float controle[4];
+	  float w[4];
+	  float t[4];
+	  float b = 0, i=0, epoca = 0, y = 0, y_in = 0, parada = 0;
 	  float theta = 0.2, alfa = 0.1;
   
   
@@ -33,10 +33,10 @@ int main()
   t[2] = -1;
   t[3] = -1;
   
-  w[0] = 1;
-  w[1] = 1;
-  w[2] = 1;
-  w[3] = 1;
+  w[0] = 0;
+  w[1] = 0;
+  w[2] = 0;
+  w[3] = 0;
   
   controle[0] = 1;
   controle[1] = 1;
