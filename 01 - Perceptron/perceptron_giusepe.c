@@ -7,9 +7,9 @@ int main (int argc, char** argv)
 	/* Resultado desejado */
 	int saida[4];
 	float taxaAprendizado = 0.1;
-	int quantidadeEpocas = 0;
+	int epoca = 0;
 	int erro = 1;
-	int i = 0, j = 0 y = 0;
+	int i = 0; int j = 0; int y = 0;
 	int bias = 1;
 
     ann[0][0] = 1;
@@ -41,7 +41,7 @@ int main (int argc, char** argv)
     			y += bias + ann[i][j] * saida[j];
     		}
 
-    		
+
 
     		erro = 0;
     		y = 0;
