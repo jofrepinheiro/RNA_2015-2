@@ -48,8 +48,6 @@ int main()
 	for(i=0; i<4; i++){
 		y_in = b + (x1[i]*w[0]) + (x2[i]*w[1]) + (x3[i]*w[2]) + (controle[i]*w[3]);
 		
-		
-	
 		if(y_in > theta){
 			y = 1;
 		}else if(y_in < (-1*theta)){
@@ -57,9 +55,6 @@ int main()
 		}else{
 			y = 0;
 		}
-		
-		
-		printf("%d %d\n", y_in, y);
 		
 		if(y != t[i]){
 			w[0] = w[0] + (alfa * t[i] * x1[i]);
@@ -70,11 +65,8 @@ int main()
 		}else{
 			parada = 1;
 		}	
-
-		printf("%d %d %d %d\n",epoca, w[0], w[1], w[2]);		
 	}
-	epoca = epoca + 1;
-	
+	epoca = epoca + 1;	
   }
   
   return 0;
