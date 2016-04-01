@@ -2,11 +2,15 @@
 
 int main (int argc, char** argv)
 {
+	/* Rede */
 	int ann[3][4];
+	/* Resultado desejado */
 	int saida[4];
-	int taxaAprendizado = 0.1;
+	float taxaAprendizado = 0.1;
 	int quantidadeEpocas = 0;
-	bool erro = true;
+	int erro = 1;
+	int i = 0, j = 0 y = 0;
+	int bias = 1;
 
     ann[0][0] = 1;
     ann[0][1] = 1;
@@ -28,12 +32,21 @@ int main (int argc, char** argv)
     saida[2] = -1;
     saida[3] = -1;
 
-    while(erro)
+    while(erro == 1)
     {
-    	for (int i = 0; i < 4; i++)
+    	for (i = 0; i < 3; i++)
     	{
+    		for (j = 0; j < 4; j++)
+    		{
+    			y += bias + ann[i][j] * saida[j];
+    		}
+
     		
+
+    		erro = 0;
+    		y = 0;
     	}
+    	epoca++;
     }
 
     return (0);
