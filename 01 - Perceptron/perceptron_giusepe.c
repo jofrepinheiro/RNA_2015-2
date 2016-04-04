@@ -1,14 +1,16 @@
 #include <stdio.h>
 
-int main (int argc, char** argv)
+int main ()
 {
-	int ann[3][4];
-	int pesos[4];
-	int saida[4];
+	float ann[3][4];
+	float pesos[4];
+	float saida[4];
 
-	float taxaAprendizado = 0.3; float ativacao = 0.3;
+	float taxaAprendizado = 0.1; float ativacao = 0.1;
 
-	int epoca = 0; int erro = 1; int i = 0; int j = 0; int y = 0; int bias = 0;
+	int epoca = 1; int erro = 1;
+	float y = 0; float bias = 0;
+	int i = 0; int j = 0;
 
     ann[0][0] = 1;
     ann[0][1] = 1;
@@ -25,10 +27,15 @@ int main (int argc, char** argv)
     ann[2][2] = 1;
     ann[2][3] = 1;
 
-    pesos[0] = 1;
-    pesos[1] = 1;
-    pesos[2] = 1;
-    pesos[3] = 1;
+	ann[3][0] = 1;
+    ann[3][1] = 1;
+    ann[3][2] = 1;
+    ann[3][3] = 1;
+
+    pesos[0] = 0;
+    pesos[1] = 0;
+    pesos[2] = 0;
+    pesos[3] = 0;
 
     saida[0] = 1;
     saida[1] = -1;
@@ -37,21 +44,18 @@ int main (int argc, char** argv)
 
     while(erro != 4)
     {
-    	for (i = 0; i < 3; i++)
+    	printf("------------- Epoca %d -------------\n", epoca);
+    	for (i = 0; i < 4; i++)
     	{
     		for (j = 0; j < 4; j++)
     			y += bias + ann[i][j] * pesos[j];
-
-    		printf("y = %d\n", y);
-
     		if (y > ativacao)
     			y = 1;
-    		else
-    			if (y < (ativacao*(-1)))
-    				y = -1;
-    			else
-    				y = 0;
-
+    		else if (y < (ativacao*(-1)))
+				y = -1;
+			else
+				y = 0;
+			printf("y%d: %6.2f\n", i, y);
     		if (y != saida[i])
     		{
     			for (j = 0; j < 4; j++)
@@ -67,14 +71,13 @@ int main (int argc, char** argv)
 
     		y = 0;
     	}
-    	epoca++;
+
     	for (j = 0; j < 4; j++)
-    	{
-    		printf("Peso %d: %d\n", j, pesos[j]);
-    	}
-
+    		printf("Peso %d: %6.2f\n", j, pesos[j]);
+    	epoca++;
+    	printf("\n");
     	system("pause");
+    	printf("\n");
     }
-
-    return (0);
+    return 0;
 }
