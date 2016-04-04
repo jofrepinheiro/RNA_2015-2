@@ -2,7 +2,6 @@
 
 int main ()
 {
-<<<<<<< HEAD
 	float ann[3][4];
 	float pesos[4];
 	float saida[4];
@@ -12,17 +11,6 @@ int main ()
 	int epoca = 1; int erro = 1;
 	float y = 0; float bias = 0;
 	int i = 0; int j = 0;
-=======
-	/* Rede */
-	int ann[3][4];
-	/* Resultado desejado */
-	int saida[4];
-	float taxaAprendizado = 0.1;
-	int epoca = 0;
-	int erro = 1;
-	int i = 0; int j = 0; int y = 0;
-	int bias = 1;
->>>>>>> origin/master
 
     ann[0][0] = 1;
     ann[0][1] = 1;
@@ -39,7 +27,6 @@ int main ()
     ann[2][2] = 1;
     ann[2][3] = 1;
 
-<<<<<<< HEAD
 	ann[3][0] = 1;
     ann[3][1] = 1;
     ann[3][2] = 1;
@@ -50,20 +37,17 @@ int main ()
     pesos[2] = 0;
     pesos[3] = 0;
 
-=======
->>>>>>> origin/master
     saida[0] = 1;
     saida[1] = -1;
     saida[2] = -1;
     saida[3] = -1;
 
-    while(erro == 1)
+    while(erro != 4)
     {
     	printf("------------- Epoca %d -------------\n", epoca);
     	for (i = 0; i < 4; i++)
     	{
     		for (j = 0; j < 4; j++)
-<<<<<<< HEAD
     			y += bias + ann[i][j] * pesos[j];
     		if (y > ativacao)
     			y = 1;
@@ -81,18 +65,12 @@ int main ()
     			erro = 0;
     		}
     		else
-=======
->>>>>>> origin/master
     		{
-    			y += bias + ann[i][j] * saida[j];
+    			erro++;
     		}
 
-
-
-    		erro = 0;
     		y = 0;
     	}
-<<<<<<< HEAD
 
     	for (j = 0; j < 4; j++)
     		printf("Peso %d: %6.2f\n", j, pesos[j]);
@@ -100,9 +78,6 @@ int main ()
     	printf("\n");
     	system("pause");
     	printf("\n");
-=======
-    	epoca++;
->>>>>>> origin/master
     }
     return 0;
 }
