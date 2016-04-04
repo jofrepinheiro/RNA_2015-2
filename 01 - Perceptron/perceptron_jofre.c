@@ -33,10 +33,10 @@ int main()
   t[2] = -1;
   t[3] = -1;
   
-  w[0] = 1;
-  w[1] = 1;
-  w[2] = 1;
-  w[3] = 1;
+  w[0] = -1;
+  w[1] = -1;
+  w[2] = -1;
+  w[3] = -1;
   
   controle[0] = 1;
   controle[1] = 1;
@@ -60,11 +60,13 @@ int main()
 			w[0] = w[0] + (alfa * t[i] * x1[i]);
 			w[1] = w[1] + (alfa * t[i] * x2[i]);
 			w[2] = w[2] + (alfa * t[i] * x3[i]);
-			w[3] = w[3] + (alfa * t[i] * controle[i]);			
+			w[3] = b;			
 			b = b + alfa*t[i];
 		}else{
 			parada = 1;
 		}	
+		
+		printf("%d %d %d %d %d\n", epoca, w[0], w[1], w[2], w[3]);
 	}
 	epoca = epoca + 1;	
   }
