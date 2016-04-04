@@ -33,10 +33,10 @@ int main()
   t[2] = -1;
   t[3] = -1;
   
-  w[0] = 1;
-  w[1] = 1;
-  w[2] = 1;
-  w[3] = 1;
+  w[0] = -1;
+  w[1] = -1;
+  w[2] = -1;
+  w[3] = -1;
   
   controle[0] = 1;
   controle[1] = 1;
@@ -48,8 +48,6 @@ int main()
 	for(i=0; i<4; i++){
 		y_in = b + (x1[i]*w[0]) + (x2[i]*w[1]) + (x3[i]*w[2]) + (controle[i]*w[3]);
 		
-		
-	
 		if(y_in > theta){
 			y = 1;
 		}else if(y_in < (-1*theta)){
@@ -58,23 +56,19 @@ int main()
 			y = 0;
 		}
 		
-		
-		printf("%d %d\n", y_in, y);
-		
 		if(y != t[i]){
 			w[0] = w[0] + (alfa * t[i] * x1[i]);
 			w[1] = w[1] + (alfa * t[i] * x2[i]);
 			w[2] = w[2] + (alfa * t[i] * x3[i]);
-			w[3] = w[3] + (alfa * t[i] * controle[i]);			
+			w[3] = b;			
 			b = b + alfa*t[i];
 		}else{
 			parada = 1;
 		}	
-
-		printf("%d %d %d %d\n",epoca, w[0], w[1], w[2]);		
+		
+		printf("%d %d %d %d %d\n", epoca, w[0], w[1], w[2], w[3]);
 	}
-	epoca = epoca + 1;
-	
+	epoca = epoca + 1;	
   }
   
   return 0;
