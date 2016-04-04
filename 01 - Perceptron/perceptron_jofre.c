@@ -43,7 +43,7 @@ int main()
   
   while(parada == 0){
 	for(i=0; i<4; i++){
-		y_in = b + (x1[i]*w[0]) + (x2[i]*w[1]) + (x3[i]*w[2]) + (controle[i]*w[3]);
+		y_in = b + (x[0][i]*w[0]) + (x[1][i]*w[1]) + (x[2][i]*w[2]) + (x[3][i]*w[3]);
 		
 		if(y_in > theta){
 			y = 1;
