@@ -8,7 +8,7 @@ int main ()
 
 	float taxaAprendizado = 0.1; float ativacao = 0.1;
 
-	int epoca = 1; int erro = 1;
+	int epoca = 1; int acerto = 1;
 	float y = 0; float bias = 0;
 	int i = 0; int j = 0;
 
@@ -37,12 +37,12 @@ int main ()
     pesos[2] = 0;
     pesos[3] = 0;
 
-    saida[0] = 1;
+    saida[0] =  1;
     saida[1] = -1;
     saida[2] = -1;
     saida[3] = -1;
 
-    while(erro != 4)
+    while(acerto != 4)
     {
     	printf("------------- Epoca %d -------------\n", epoca);
     	for (i = 0; i < 4; i++)
@@ -62,11 +62,11 @@ int main ()
     				pesos[j] = pesos[j] + taxaAprendizado * saida[i] * ann[i][j];
 
     			bias = bias + taxaAprendizado * saida[i];
-    			erro = 0;
+    			acerto = 0;
     		}
     		else
     		{
-    			erro++;
+    			acerto++;
     		}
 
     		y = 0;
