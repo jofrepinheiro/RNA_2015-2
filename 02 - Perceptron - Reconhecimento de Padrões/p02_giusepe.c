@@ -10,7 +10,7 @@ int main ()
 
 	int epoca = 1; int acerto = 1;
 	float y = 0; float bias = 0;
-	int i = 0; int j = 0; int k = 0; int count = 0; int letras = 0;
+	int i = 0; int j = 0; int k = 0; int count = 0; int linhas = 0;
 
     char url[]="letras.txt";
 	char ch;
@@ -24,7 +24,7 @@ int main ()
 	    printf("acerto, nao foi possivel abrir o arquivo\n");
 	else
     {
-	    while( ( (ch=fgetc(arq))!= EOF ) && (letras < 7) && (acerto != 7) )
+	    while( ( (ch=fgetc(arq))!= EOF ) && (letras < 7) && (acerto != 7)
         {
 
             if (ch != '\n')
@@ -38,7 +38,7 @@ int main ()
 
                     for (k = 0; k < 7; k++)
                     {
-                        ch = fgetc(arq);
+                        ch=fgetc(arq));
                         if (ch == '.')
                             saida[k] = -1;
                         else
