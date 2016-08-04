@@ -2,7 +2,7 @@
 
 int main ()
 {
-	char ann[7][63];
+	float ann[7][63];
 	float pesos[7][63];
 	float saida[7][7];
 
@@ -15,7 +15,7 @@ int main ()
 	int i = 0; int j = 0; int k = 0; int count = 0; int letras = 0;
 
 	for (i=0; i<7; i++)
-		bias[i]=0.0;
+		bias[i] = 0;
 
     char url[]="letras.txt";
 	char ch;
@@ -23,7 +23,7 @@ int main ()
 
     for (i = 0; i < 7; i++)
     	for (k = 0; k < 63; k++)
-    		pesos[i][k] = 0.0;
+    		pesos[i][k] = 0;
 
 	arq = fopen(url, "r");
 	if(arq == NULL)
@@ -34,11 +34,15 @@ int main ()
         {
             if (ch != '\n')
             {
-                ann[letras][count] = ch;
+                if(ch == '#'){
+                	ann[letras][count] = 1;
+                }else{
+                	ann[letras][count] = -1;
+                }
+
                 count++;
                 if (count % 63 == 0)
                 {
-                    letras++;
                     count = 0;
 
                     for (k = 0; k < 7; k++)
@@ -49,18 +53,28 @@ int main ()
                         else
                             saida[letras][k] = 1;
                     }
+                    letras++;
                 }
             }
         }
     }
 	fclose(arq);
 
+	for(k=0; k<63; k++){
+		if((k % 7)==0){
+			printf("\n");
+		}
+		printf("%f\t", ann[0][k]);
+	}
+
+
     /* CÓDIGO DA REDE */
 
 	for(k = 0; k < 7; k++){
 		acerto = 0;
-		while(acerto == 0)
+		while(acerto != 1)
 		{
+//			system("pause");
 			printf("------------- Epoca %d -------------\n", epoca);
 
 			for (i = 0; i < 7; i++)
@@ -85,7 +99,7 @@ int main ()
 				}
 				else
 				{
-					acerto = 1;
+					acerto=1;
 				}
 
 				y = 0;
